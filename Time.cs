@@ -8,17 +8,22 @@ namespace RumosSecção2
 {
     internal class Time
     {
-        public int hh {  get; set; }
-        public int mm {  get; set; }
-        public int ss { get; set; }
+        public TimeOnly dinner_time {  get; set; }
 
         public Time() { }
 
-        public Time(int hh, int mm, int ss)
+        public Time(TimeOnly dinner_time)
         {
-            this.hh = hh;
-            this.mm = mm;
-            this.ss = ss;
-        }   
+            this.dinner_time = dinner_time;
+        }  
+
+        public TimeSpan TimeToDinner(TimeOnly now, TimeOnly dinner_time) {
+
+            TimeSpan x = dinner_time - now;
+        
+            return x;
+        }
+
+        
     }
 }

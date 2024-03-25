@@ -1,6 +1,10 @@
 ﻿using System.Collections.Concurrent;
 using System.Net.Cache;
+using System.Net.Http.Headers;
+using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RumosSecção2
 {
@@ -57,7 +61,7 @@ namespace RumosSecção2
 
              //f
 
-             Console.WriteLine(chars1[4]);*/
+             Console.WriteLine(chars1[4]);
 
             //3.
 
@@ -79,7 +83,53 @@ namespace RumosSecção2
             int dayc = DateTime.Now.Day;
 
 
-            Console.WriteLine(idade.Age(idade.d, idade.m, idade.a, dayc, monthc,yearc));
+            Console.WriteLine("Você tem: " + idade.Age(idade.d, idade.m, idade.a, dayc, monthc,yearc) + " anos!");*/
+
+            while (true)
+            {
+
+                try {
+                    System.Console.WriteLine("A que horas costuma jantar?");
+                    string DinnerTime = System.Console.ReadLine();
+
+                    DateTime Current = DateTime.Now;
+
+                    TimeOnly current = TimeOnly.FromDateTime(Current);
+
+                    TimeOnly time_to_dinner = TimeOnly.Parse(DinnerTime);
+                    System.Console.WriteLine("\nHoras atuais: " + current.ToString("HH:mm"));
+
+                    Time remaining = new Time();
+                    TimeSpan w = remaining.TimeToDinner(current, time_to_dinner);
+
+
+                    System.Console.WriteLine("\nFaltam " + w.ToString(@"hh\:mm") + " horas para o jantar!\n");
+                    break;
+                }
+
+                catch {
+                    System.Console.WriteLine("\nPlease, input the hour in the correct format \" hh:mm \"\n ");
+                }
+
+            }
+
+            
+  
+
+         
+
+
+
+
+
+
+
+             
+
+        
+
+
+
 
             
 
